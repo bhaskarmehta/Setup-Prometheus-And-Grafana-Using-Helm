@@ -44,4 +44,4 @@ Install kube-prometheus-stack
 UserName: admin 
 Password: prom-operator
 
-Use Grafana dashboar id 3662 or 6417
+Use Grafana dashboad id 3662 or 6417
