@@ -33,7 +33,7 @@ Install kube-prometheus-stack
 -> In order to make prometheus and grafana available outside the cluster, use LoadBalancer or NodePort instead of ClusterIP.
 -> Edit Prometheus Service
    kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
-
+Add this in the cluster - http://stable-kube-prometheus-sta-prometheus.monitoring.svc.cluster.local:9090 fot connecting prometheus data source
 -> Edit Grafana Service
    kubectl edit svc stable-grafana -n prometheus
 
