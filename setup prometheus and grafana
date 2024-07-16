@@ -33,12 +33,16 @@ Install kube-prometheus-stack
 -> In order to make prometheus and grafana available outside the cluster, use LoadBalancer or NodePort instead of ClusterIP.
 -> Edit Prometheus Service
    kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
-Add this in the cluster - http://stable-kube-prometheus-sta-prometheus.monitoring.svc.cluster.local:9090 fot connecting prometheus data source
+Add this in the cluster - http://stable-kube-prometheus-sta-prometheus.monitoring.svc.cluster.local:9090 for connecting prometheus data source
+
+To connect Loki with the grafana- http://loki-logging.monitoring.svc.cluster.local:3100 and It will show unable to connect but go to DataSource and it will show the Loki
 -> Edit Grafana Service
    kubectl edit svc stable-grafana -n prometheus
 
 -> Verify if service is changed to LoadBalancer and also to get the Load Balancer URL.
    kubectl get svc -n prometheus
+
+
 
 -> Access Grafana UI in the browser
 UserName: admin 
