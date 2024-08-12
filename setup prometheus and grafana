@@ -35,13 +35,18 @@ Install kube-prometheus-stack
    kubectl edit svc stable-kube-prometheus-sta-prometheus -n prometheus
 Add this in the cluster - http://stable-kube-prometheus-sta-prometheus.monitoring.svc.cluster.local:9090 for connecting prometheus data source
 
-To connect Loki with the grafana- http://loki-logging.monitoring.svc.cluster.local:3100 and It will show unable to connect but go to DataSource and it will show the Loki
 -> Edit Grafana Service
    kubectl edit svc stable-grafana -n prometheus
 
 -> Verify if service is changed to LoadBalancer and also to get the Load Balancer URL.
    kubectl get svc -n prometheus
 
+Install Loki using helm
+------------------------------
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm upgrade --install loki --namespace=monitoring grafana/loki-stack
+To connect Loki with the grafana- http://loki-logging.monitoring.svc.cluster.local:3100 and It will show unable to connect but go to DataSource and it will show the Loki
 
 
 -> Access Grafana UI in the browser
