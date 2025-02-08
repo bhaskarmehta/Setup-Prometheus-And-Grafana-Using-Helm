@@ -11,6 +11,8 @@ Implementation steps
 
 -> Add prometheus Helm repo
   helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+ -> Using some storage to persist the data in grafana
+  helm upgrade --install stable prometheus-community/kube-prometheus-stack -n monitoring   --set grafana.persistence.enabled=true   --set grafana.persistence.size=10Gi   --set grafana.persistence.storageClassName=standard
 
   helm search repo prometheus-community
 
